@@ -41,17 +41,4 @@ def get_all_matches():
         curr_matches = get_matches_from_page(page)
     return all_matches
 
-
-response = requests.get(url)
-data = response.json()
-per_page = data['per_page']
-matches_data = data['data']
-matches = []
-
-for match in matches_data:
-    matches.append(create_match(match))
-
-for match in matches:
-    match.print_match()
-
 print_to_csv(matches, 'matches.csv')
