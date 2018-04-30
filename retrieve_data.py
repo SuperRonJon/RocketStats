@@ -9,6 +9,14 @@ def create_match(match_data):
     return match
 
 
+def print_to_csv(matches, filename):
+    f = open(filename, 'w')
+    headers = 'Event, Team 1, Team 1 Wins, Team 2, Team 2 Wins, Winner, Date, Time\n'
+    f.write(headers)
+    for match in matches:
+        f.write(match.csv_output())
+
+
 response = requests.get(url)
 data = response.json()
 per_page = data['per_page']
@@ -20,3 +28,5 @@ for match in matches_data:
 
 for match in matches:
     match.print_match()
+
+print_to_csv(matches, 'matches.csv')
