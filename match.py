@@ -13,11 +13,8 @@ class Match:
         else:
             self.winner = team2
 
-
-    def write_to_csv(self, filename):
-        f = open(filename, 'w')
-        f.write(self.event + ',' + self.team1 + ',' + str(self.team1_games) + ',' + self.team2 + ',' + str(self.team2_games) + ',' + self.date + ',' + str(self.time))
-
+    def csv_output(self):
+        return self.event + ',' + self.team1 + ',' + str(self.team1_games) + ',' + self.team2 + ',' + str(self.team2_games) + ',' + self.winner + ',' + self.date + ',' + str(self.time) + '\n'
 
     def print_match(self):
         print(self.team1 + ' vs ' + self.team2 + ": " + self.winner + ' wins ' + str(self.team1_games) + '-' + str(self.team2_games))
