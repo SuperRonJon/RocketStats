@@ -41,4 +41,6 @@ def get_all_matches():
         curr_matches = get_matches_from_page(page)
     return all_matches
 
+
+matches = get_all_matches()
 print_to_csv(matches, 'matches.csv')
